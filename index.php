@@ -38,7 +38,7 @@ if (!isset($_SESSION['user'])) $_SESSION['user']='Игрок';
 
 <section class="section-head"><h2>Аккаунт</h2><span>Демо</span></section>
 <a class="profile-card card" href="profile.php">
-<div class="avatar"><?=htmlspecialchars(mb_strtoupper(mb_substr($_SESSION['user'],0,1)))?></div>
+<div class="avatar"><?=htmlspecialchars(function_exists('mb_substr') ? mb_strtoupper(mb_substr($_SESSION['user'],0,1)) : strtoupper(substr($_SESSION['user'],0,1)))?></div>
 <div><strong><?=htmlspecialchars($_SESSION['user'])?></strong><small>Баланс и история игр</small></div>
 <span class="arrow">→</span>
 </a>
