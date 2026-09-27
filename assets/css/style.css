@@ -99,3 +99,20 @@ repeating-linear-gradient(90deg,transparent 0,transparent 59px,rgba(255,255,255,
 .chart.win{--chart-color:var(--green);border-color:rgba(100,215,160,.45)}
 .chart.win .multiplier{color:var(--green);text-shadow:0 0 28px rgba(100,215,160,.2)}
 @keyframes crashFlash{0%{transform:translate(-50%,-50%) scale(1.16)}100%{transform:translate(-50%,-50%) scale(1)}}
+
+
+/* Crash v1.1.0 cycle states */
+.chart{position:relative;overflow:hidden}
+.chart-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:120px 120px;pointer-events:none}
+.chart.waiting{border-color:rgba(255,255,255,.08);box-shadow:none}
+.chart.waiting .chart-line,.chart.waiting .chart-grid{display:none}
+.chart.waiting .multiplier{color:var(--text);text-shadow:none;font-size:clamp(58px,16vw,92px)}
+.chart.live{--chart-color:var(--green);border-color:rgba(102,214,162,.35);box-shadow:0 0 45px rgba(102,214,162,.07)}
+.chart.live .chart-line{display:block;border-bottom-color:var(--green);filter:drop-shadow(0 0 10px rgba(102,214,162,.28))}
+.chart.live .multiplier{color:var(--green);text-shadow:0 0 28px rgba(102,214,162,.2)}
+.chart.lost{--chart-color:var(--accent);border-color:rgba(255,111,104,.5);box-shadow:0 0 45px rgba(255,111,104,.09)}
+.chart.lost .chart-line{display:block;border-bottom-color:var(--accent);filter:drop-shadow(0 0 12px rgba(255,111,104,.35))}
+.chart.lost .multiplier{color:var(--accent);text-shadow:0 0 30px rgba(255,111,104,.22);animation:crashFlash .35s ease-out}
+.chart.win{--chart-color:var(--green);border-color:rgba(102,214,162,.45)}
+.chart.win .multiplier{color:var(--green);text-shadow:0 0 30px rgba(102,214,162,.22)}
+@keyframes crashFlash{0%{transform:translate(-50%,-50%) scale(1.16)}100%{transform:translate(-50%,-50%) scale(1)}}
