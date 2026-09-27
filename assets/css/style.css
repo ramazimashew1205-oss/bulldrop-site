@@ -87,3 +87,15 @@ repeating-linear-gradient(90deg,transparent 0,transparent 59px,rgba(255,255,255,
   .page{padding:14px}.topbar{padding:0 14px}.hero{min-height:330px;padding:23px}.hero h1{font-size:43px}.hero-orb{width:145px;height:145px;right:-45px;bottom:-20px;opacity:.8}.games-grid{grid-template-columns:1fr}.game-card{min-height:96px}.chart{height:300px}.multiplier{font-size:48px}.profile-grid{grid-template-columns:1fr}
 }
 @media(min-width:700px){.page{padding:24px}.hero{min-height:350px}.games-grid{grid-template-columns:1fr 1fr}}
+
+
+/* Crash live states */
+.chart{--chart-color:var(--green);transition:border-color .25s,box-shadow .25s}
+.chart-line{border-bottom-color:var(--chart-color);filter:drop-shadow(0 0 12px color-mix(in srgb,var(--chart-color) 35%,transparent));transition:border-color .2s,filter .2s}
+.chart.live{--chart-color:var(--green);border-color:rgba(100,215,160,.35);box-shadow:0 18px 45px rgba(0,0,0,.2),0 0 35px rgba(100,215,160,.06)}
+.chart.live .multiplier{color:var(--green);text-shadow:0 0 28px rgba(100,215,160,.18)}
+.chart.lost{--chart-color:var(--accent);border-color:rgba(255,107,99,.5);box-shadow:0 18px 45px rgba(0,0,0,.2),0 0 40px rgba(255,107,99,.08)}
+.chart.lost .multiplier{color:var(--accent);text-shadow:0 0 28px rgba(255,107,99,.2);animation:crashFlash .35s ease-out}
+.chart.win{--chart-color:var(--green);border-color:rgba(100,215,160,.45)}
+.chart.win .multiplier{color:var(--green);text-shadow:0 0 28px rgba(100,215,160,.2)}
+@keyframes crashFlash{0%{transform:translate(-50%,-50%) scale(1.16)}100%{transform:translate(-50%,-50%) scale(1)}}
