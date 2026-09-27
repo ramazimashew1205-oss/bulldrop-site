@@ -1,0 +1,1 @@
+document.addEventListener('click',e=>{const b=e.target.closest('[data-amount]');if(!b)return;const input=document.querySelector('[name="amount"],#amount');if(input)input.value=b.dataset.amount});
