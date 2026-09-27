@@ -116,3 +116,62 @@ repeating-linear-gradient(90deg,transparent 0,transparent 59px,rgba(255,255,255,
 .chart.win{--chart-color:var(--green);border-color:rgba(102,214,162,.45)}
 .chart.win .multiplier{color:var(--green);text-shadow:0 0 30px rgba(102,214,162,.22)}
 @keyframes crashFlash{0%{transform:translate(-50%,-50%) scale(1.16)}100%{transform:translate(-50%,-50%) scale(1)}}
+
+
+/* Crash v1.2.0 animations */
+@keyframes crashRisePulse{
+  0%,100%{opacity:1}
+  50%{opacity:.82}
+}
+@keyframes crashWaiting{
+  0%,100%{transform:translate(-50%,-50%) scale(1)}
+  50%{transform:translate(-50%,-50%) scale(1.045)}
+}
+@keyframes crashGlow{
+  0%{opacity:.12;transform:scale(.92)}
+  50%{opacity:.28;transform:scale(1.04)}
+  100%{opacity:.12;transform:scale(.92)}
+}
+@keyframes cashoutPop{
+  0%{transform:translate(-50%,-50%) scale(.88);opacity:.65}
+  65%{transform:translate(-50%,-50%) scale(1.08)}
+  100%{transform:translate(-50%,-50%) scale(1)}
+}
+.chart-line{
+  will-change:transform;
+  transition:filter .18s ease,border-color .18s ease;
+}
+.chart.live .chart-line{animation:crashRisePulse 1.7s ease-in-out infinite}
+.chart.live .chart-glow{
+  position:absolute;width:55%;aspect-ratio:1;left:22%;top:18%;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(102,214,162,.16),transparent 68%);
+  pointer-events:none;
+  animation:crashGlow 2.2s ease-in-out infinite;
+}
+.chart.waiting .multiplier{animation:crashWaiting 1s ease-in-out infinite}
+.chart.win .multiplier{animation:cashoutPop .45s cubic-bezier(.2,.8,.2,1)}
+.chart.win{animation:cashoutBorder .5s ease-out}
+@keyframes cashoutBorder{
+  0%{box-shadow:0 0 0 rgba(102,214,162,0)}
+  45%{box-shadow:0 0 55px rgba(102,214,162,.22)}
+  100%{box-shadow:0 0 0 rgba(102,214,162,.06)}
+}
+#cashout{transition:transform .16s ease,filter .16s ease,opacity .16s ease,box-shadow .2s ease}
+#cashout:not(:disabled){
+  box-shadow:0 8px 24px rgba(255,255,255,.06);
+  animation:cashoutButton 1.35s ease-in-out infinite;
+}
+@keyframes cashoutButton{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-1px)}
+}
+.game-status{transition:color .2s ease,transform .2s ease,opacity .2s ease}
+.chart.lost .chart-line{animation:crashStop .32s ease-out forwards}
+@keyframes crashStop{
+  0%{filter:drop-shadow(0 0 22px rgba(255,111,104,.7))}
+  100%{filter:drop-shadow(0 0 12px rgba(255,111,104,.35))}
+}
+@media(prefers-reduced-motion:reduce){
+  .chart.live .chart-line,.chart.live .chart-glow,.chart.waiting .multiplier,#cashout:not(:disabled){animation:none}
+}
