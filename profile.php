@@ -14,7 +14,7 @@ $user=$_SESSION['user'];$history=$_SESSION['history']??[];
 <header class="topbar"><a class="brand" href="index.php"><span class="brand-mark">D</span>DROP</a><div class="balance"><span>₽</span><?=number_format((float)$_SESSION['balance'],2,'.',' ')?></div></header>
 <main class="page">
 <section class="card" style="padding:20px">
-<div style="display:flex;align-items:center;gap:13px"><div class="avatar" style="width:58px;height:58px;font-size:22px"><?=htmlspecialchars(mb_strtoupper(mb_substr($user,0,1)))?></div><div><span class="eyebrow">PROFILE</span><h1 style="margin:4px 0 0;font-size:26px"><?=htmlspecialchars($user)?></h1><span class="muted" style="font-size:12px">Виртуальный аккаунт</span></div></div>
+<div style="display:flex;align-items:center;gap:13px"><div class="avatar" style="width:58px;height:58px;font-size:22px"><?=htmlspecialchars(function_exists('mb_substr') ? mb_strtoupper(mb_substr($user,0,1)) : strtoupper(substr($user,0,1)))?></div><div><span class="eyebrow">PROFILE</span><h1 style="margin:4px 0 0;font-size:26px"><?=htmlspecialchars($user)?></h1><span class="muted" style="font-size:12px">Виртуальный аккаунт</span></div></div>
 <div class="profile-grid"><div class="stat"><b><?=number_format((float)$_SESSION['balance'],2,'.',' ')?></b><span>Баланс</span></div><div class="stat"><b><?=count($history)?></b><span>Раундов</span></div></div>
 <div class="action-row"><a class="btn btn-secondary" href="history.php">История</a><a class="btn btn-primary" href="crash.php">Играть</a></div>
 <form method="post" style="margin-top:8px"><button class="btn btn-secondary wide" name="reset" value="1">Сбросить демо-баланс</button></form>
