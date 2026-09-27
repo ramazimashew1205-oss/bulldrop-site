@@ -43,6 +43,17 @@ if($action==='start'){
   json_out(['ok'=>true,'amount'=>$amount,'crash_at'=>$crashAt,'balance'=>$_SESSION['balance']]);
 }
 
+if($action==='crash'){
+  $round=$_SESSION['crash_round']??null;
+  if(!$round)json_out(['ok'=>false,'message'=>'Активного раунда нет.','already_resolved'=>true,'balance'=>$_SESSION['balance']]);
+  $m=current_multiplier($round['started_at']);
+  if($m < $round['crash_at'])json_out(['ok'=>false,'message'=>'Раунд ещё продолжается.','still_running'=>true]);
+  $crash=$round['crash_at'];
+  unset($_SESSION['crash_round']);
+  history_add('Crash',$round['amount'],$crash,'loss');
+  json_out(['ok'=>true,'crashed'=>true,'multiplier'=>$crash,'balance'=>$_SESSION['balance'],'message'=>'Краш. Ставка потеряна.']);
+}
+
 if($action==='cashout'){
   $round=$_SESSION['crash_round']??null;
   if(!$round)json_out(['ok'=>false,'message'=>'Активного раунда нет.']);
