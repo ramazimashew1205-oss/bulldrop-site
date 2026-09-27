@@ -1,0 +1,1 @@
+<?php session_start();$_SESSION['balance']??=1000;if($_SERVER['REQUEST_METHOD']==='POST'){$_SESSION['balance']+=max(0,(float)($_POST['amount']??0));}header('Location: profile.php');exit;
