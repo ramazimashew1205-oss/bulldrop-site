@@ -6,7 +6,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
   if(!preg_match('/^[p{L}p{N}_-]{3,32}$/u',$username))$error='Логин: 3–32 символа, буквы, цифры, _ или -.';
   elseif(strlen($password)<6)$error='Пароль должен быть не короче 6 символов.';
   else{
-    try{$hash=password_hash($password,PASSWORD_DEFAULT);$s=$pdo->prepare('INSERT INTO users(username,password_hash,role,balance) VALUES(?,?,?,?,?)');$s->execute([$username,$hash,'user',1000]);$_SESSION['user_id']=$pdo->lastInsertId();$_SESSION['user']=$username;$_SESSION['role']='user';$_SESSION['balance']=1000.00;header('Location: profile.php');exit;}
+    try{$hash=password_hash($password,PASSWORD_DEFAULT);$s=$pdo->prepare('INSERT INTO users(username,password_hash,role,balance) VALUES(?,?,?,?)');$s->execute([$username,$hash,'user',1000]);$_SESSION['user_id']=$pdo->lastInsertId();$_SESSION['user']=$username;$_SESSION['role']='user';$_SESSION['balance']=1000.00;header('Location: profile.php');exit;}
     catch(PDOException $e){$error='Этот логин уже занят.';}
   }
 }
