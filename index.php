@@ -9,7 +9,7 @@ if (!isset($_SESSION['user'])) $_SESSION['user'] = 'Игрок';
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>DROP — игровая платформа</title>
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="<?= htmlspecialchars(rtrim(str_replace("\\","/",dirname($_SERVER["SCRIPT_NAME"])),"/") . "/assets/css/style.css?v=20260927") ?>">
 </head>
 <body>
 <div class="app">
