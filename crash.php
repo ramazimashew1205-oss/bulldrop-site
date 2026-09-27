@@ -4,7 +4,7 @@ if(!isset($_SESSION['balance'])) $_SESSION['balance']=1000.00;
 ?>
 <!doctype html>
 <html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Crash — DROP</title><link rel="stylesheet" href="assets/css/style.css?v=1.0.0"></head>
+<title>Crash — DROP</title><link rel="stylesheet" href="assets/css/style.css?v=1.0.1"></head>
 <body><div class="app">
 <header class="topbar"><a class="brand" href="index.php"><span class="brand-mark">D</span>DROP</a><div class="balance"><span>₽</span><b id="balance"><?=number_format((float)$_SESSION['balance'],2,'.',' ')?></b></div></header>
 <main class="page game-page">
@@ -21,7 +21,7 @@ if(!isset($_SESSION['balance'])) $_SESSION['balance']=1000.00;
 </main>
 <nav class="bottom-nav"><a href="index.php"><span>⌂</span>Главная</a><a class="active" href="crash.php"><span>↗</span>Crash</a><a href="upgrade.php"><span>◆</span>Upgrade</a><a href="profile.php"><span>●</span>Профиль</a></nav>
 </div>
-<script src="assets/js/app.js?v=1.0.0"></script>
+<script src="assets/js/app.js?v=1.0.1"></script>
 <script>
 let timer=null,round=null,lastTs=0;
 const $=id=>document.getElementById(id);
