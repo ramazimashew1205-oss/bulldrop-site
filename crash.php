@@ -82,10 +82,10 @@ function render(d){
   }
 
   if(d.phase==='running'){
-    stateClass(cashedOut?'win':'live');
     myBet=d.bet;
     cashedOut=Boolean(d.cashed_out);
     crashValue=d.crash_value!==undefined?Number(d.crash_value):crashValue;
+    stateClass(cashedOut?'win':'live');
 
     if(d.cashout_multiplier!==null && d.cashout_multiplier!==undefined){
       $('status').textContent='Забрано на '+Number(d.cashout_multiplier).toFixed(2)+'x · раунд продолжается';
