@@ -1,0 +1,1 @@
+<?php session_start();header('Content-Type: application/json; charset=utf-8');$ok=mt_rand(1,100)<=25;echo json_encode(['ok'=>$ok,'mode'=>'demo'],JSON_UNESCAPED_UNICODE);
