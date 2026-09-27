@@ -1,1 +1,7 @@
-document.addEventListener('click',e=>{const b=e.target.closest('[data-amount]');if(!b)return;const input=document.querySelector('[name="amount"],#amount');if(input)input.value=b.dataset.amount});
+document.addEventListener('click',function(e){
+  const amount=e.target.closest('[data-amount]');
+  if(amount){
+    const input=document.querySelector('[name="amount"],#amount');
+    if(input){input.value=amount.dataset.amount;input.focus();}
+  }
+});
