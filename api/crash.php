@@ -1,0 +1,1 @@
+<?php session_start();header('Content-Type: application/json; charset=utf-8');$m=round(1.2+mt_rand(0,380)/100,2);echo json_encode(['ok'=>true,'multiplier'=>$m,'mode'=>'demo'],JSON_UNESCAPED_UNICODE);
