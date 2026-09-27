@@ -18,6 +18,7 @@ $user=$_SESSION['user'];$history=$_SESSION['history']??[];
 <div class="profile-grid"><div class="stat"><b><?=number_format((float)$_SESSION['balance'],2,'.',' ')?></b><span>Баланс</span></div><div class="stat"><b><?=count($history)?></b><span>Раундов</span></div></div>
 <div class="action-row"><a class="btn btn-secondary" href="history.php">История</a><a class="btn btn-primary" href="crash.php">Играть</a></div>
 <form method="post" style="margin-top:8px"><button class="btn btn-secondary wide" name="reset" value="1">Сбросить демо-баланс</button></form>
+<a class="btn logout-btn wide" href="logout.php">↪ Выйти из аккаунта</a>
 </section>
 <section class="section-head"><h2>Правила демо</h2></section>
 <div class="notice">Все ставки и выплаты виртуальные. Платёжных систем и вывода реальных денег в проекте нет.</div>
