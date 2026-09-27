@@ -1,3 +1,19 @@
 # DROP — PHP demo gaming site
 
-Mobile-first PHP demo gaming UI.
+Мобильная PHP-заготовка в тёмном минималистичном стиле по визуальным референсам.
+
+## Сейчас
+- Главная
+- Crash demo
+- Upgrade demo
+- Профиль и виртуальный баланс
+- Mobile-first UI
+- PHP sessions
+
+Все игровые кредиты в текущей версии **виртуальные**. Платежи и вывод реальных денег не реализованы.
+
+## Запуск
+Нужен PHP 8+:
+`php -S localhost:8000`
+
+Затем открыть http://localhost:8000
