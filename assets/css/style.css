@@ -175,3 +175,21 @@ repeating-linear-gradient(90deg,transparent 0,transparent 59px,rgba(255,255,255,
 @media(prefers-reduced-motion:reduce){
   .chart.live .chart-line,.chart.live .chart-glow,.chart.waiting .multiplier,#cashout:not(:disabled){animation:none}
 }
+
+
+/* Profile logout */
+.logout-btn{
+  margin-top:9px;
+  min-height:48px;
+  background:rgba(255,107,99,.08);
+  border-color:rgba(255,107,99,.24);
+  color:var(--accent)!important;
+  box-shadow:0 8px 24px rgba(255,107,99,.05);
+}
+.logout-btn:hover{
+  background:rgba(255,107,99,.13);
+  border-color:rgba(255,107,99,.42);
+  transform:translateY(-1px);
+  box-shadow:0 12px 30px rgba(255,107,99,.10);
+}
+.logout-btn:active{transform:scale(.985)}
