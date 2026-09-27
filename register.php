@@ -1,0 +1,7 @@
+<?php
+session_start();require __DIR__.'/config/database.php';
+$error='';
+if($_SERVER['REQUEST_METHOD']==='POST'){ $u=trim($_POST['username']??'');$p=$_POST['password']??'';
+if(strlen($u)<3||strlen($u)>32||strlen($p)<6)$error='Логин: 3–32 символа, пароль: минимум 6.';
+else{try{$s=$pdo->prepare('INSERT INTO users(username,password_hash) VALUES(?,?)');$s->execute([$u,password_hash($p,PASSWORD_DEFAULT)]);$_SESSION['user_id']=$pdo->lastInsertId();$_SESSION['user']=$u;$_SESSION['balance']=1000;header('Location: profile.php');exit;}catch(PDOException $e){$error='Такой логин уже существует.';}}}}
+?><!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Регистрация — DROP</title><link rel="stylesheet" href="assets/css/style.css"></head><body><div class="app"><main class="page"><section class="card" style="padding:22px"><span class="eyebrow">ACCOUNT</span><h1>Регистрация</h1><?php if($error):?><p class="danger"><?=$error?></p><?php endif;?><form method="post"><input class="input" name="username" placeholder="Логин" required><input class="input" style="margin-top:8px" name="password" type="password" placeholder="Пароль" required><button class="btn btn-primary wide">Создать аккаунт</button></form><a class="btn btn-secondary wide" href="login.php">Войти</a></section></main></div></body></html>
